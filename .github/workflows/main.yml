@@ -21,11 +21,11 @@ jobs:
     # - name: Run build task
     #   run: npm run build
     - name: Deploy to Server
-      uses: easingthemes/ssh-deploy@v2.1.5
+      uses: easingthemes/ssh-deploy@v2.1.1
       env:
           SSH_PRIVATE_KEY: ${{ secrets.UBAN_TEST_SECRET }}
           ARGS: '-rltgoDzvO --delete'
           SOURCE: dist # 这是要复制到阿里云静态服务器的文件夹名称
-          REMOTE_HOST: '123.56.168.39:3021' # 你的阿里云公网地址
+          REMOTE_HOST: '123.56.168.39' # 你的阿里云公网地址
           REMOTE_USER: root # 阿里云登录后默认为 root 用户，并且所在文件夹为 root
           TARGET: /dist # 打包后的 dist 文件夹将放在 /root/node-server
